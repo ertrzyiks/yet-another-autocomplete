@@ -241,11 +241,7 @@ export default class Autocomplete {
     const distanceToTop = Math.abs(itemTopOffset - scrollTop)
     const distanceToBottom = Math.abs(scrollBottom - itemBottomOffset)
 
-    if (distanceToTop < distanceToBottom) {
-      this.container.scrollTop = itemTopOffset
-    } else {
-      this.container.scrollTop = itemBottomOffset - height
-    }
+    this.container.scrollTop = (distanceToTop < distanceToBottom) ? itemTopOffset : itemBottomOffset - height
   }
 
   // Misc
